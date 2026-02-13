@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>💝 Happy Valentine's Day - My</title>
+    <meta name="description" content="A special Valentine's Day message for Trần Đỗ My">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Quicksand:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Background Music -->
+    <audio id="bgMusic" loop preload="auto">
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Start Screen -->
+    <div class="overlay-screen" id="startScreen">
+        <div class="start-content">
+            <div class="start-heart">💝</div>
+            <h1 class="start-title">Happy Valentine's Day</h1>
+            <p class="start-subtitle">Một điều bất ngờ dành riêng cho em</p>
+            <button class="start-btn" id="startBtn"><span>✨</span> Bắt đầu</button>
+            <p class="start-hint">Sử dụng camera để nhận diện cử chỉ tay (camera ẩn)</p>
+        </div>
+    </div>
+
+    <!-- Loading Screen -->
+    <div class="overlay-screen hidden" id="loadingScreen">
+        <div class="start-content">
+            <div class="start-heart spin">💝</div>
+            <p class="loading-text">Đang tải mô hình nhận diện...</p>
+        </div>
+    </div>
+
+    <!-- Hidden video (camera runs behind the scenes) -->
+    <video id="webcam" autoplay playsinline
+        style="position:fixed;top:0;left:0;width:1px;height:1px;opacity:0;pointer-events:none;z-index:-1;"></video>
+
+    <!-- Aurora Background -->
+    <div class="aurora"></div>
+
+    <!-- Background Particles Canvas -->
+    <canvas id="bgCanvas"></canvas>
+
+    <!-- Petal Effects Canvas -->
+    <canvas id="fxCanvas"></canvas>
+
+    <!-- Main Scene (Beautiful Valentine UI) -->
+    <div class="scene-container" id="sceneContainer">
+        <!-- Orbit sparkles -->
+        <div class="orbit-ring">
+            <div class="orbit-dot dot1"></div>
+            <div class="orbit-dot dot2"></div>
+            <div class="orbit-dot dot3"></div>
+        </div>
+
+        <!-- Heart -->
+        <div class="heart-wrapper" id="heartWrapper">
+            <div class="heart-glow"></div>
+            <div class="heart">
+                <div class="heart-shine"></div>
+            </div>
+        </div>
+
+        <!-- Gesture instruction -->
+        <p class="instruction" id="instruction">Giơ bàn tay lên trước camera 🖐️</p>
+
+        <!-- Hand indicator (small icon) -->
+        <div class="hand-indicator" id="handIndicator">
+            <span class="hand-icon">🖐️</span>
+            <span class="hand-status" id="handStatus">Đang chờ nhận diện...</span>
+        </div>
+    </div>
+
+    <!-- Message Reveal -->
+    <div class="message-container" id="messageContainer">
+        <!-- Photo Slideshow -->
+        <div class="msg-item photo-frame" id="photoFrame">
+            <div class="photo-border" id="photoBorder">
+                <!-- Photos loaded dynamically by JS -->
+            </div>
+            <div class="photo-hearts">💕</div>
+            <div class="photo-dots" id="photoDots"></div>
+        </div>
+
+        <div class="msg-item valentine-text" id="valentineText"></div>
+        <div class="msg-item name-wrapper" id="nameText"></div>
+        <div class="msg-item heart-divider" id="heartDivider">
+            <span>✦</span><span>💝</span><span>✦</span>
+        </div>
+        <div class="msg-item love-message" id="loveMessage"></div>
+        <div class="msg-item date" id="dateText"></div>
+    </div>
+
+    <!-- MediaPipe (gesture detection only, no visual) -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

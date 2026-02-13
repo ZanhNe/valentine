@@ -14,7 +14,13 @@ const PHOTOS = [
     'photo3.gif',
     'photo7.gif',
     'photo5.gif',
-    'photo6.gif'
+    'photo6.gif',
+    'photo8.gif',
+    'photo9.gif',
+    'photo10.gif',
+    'photo11.gif',
+    'photo12.gif',
+    'photo13.gif'
 ];
 /* ======================================== */
 
